@@ -1,14 +1,14 @@
 <?php
-namespace App\Controllers\Hockey;
+namespace App\Controllers\creators;
 use App\Controllers\BaseController;
 
-class Home extends BaseController
+class Page extends BaseController
 {
     public function index()
     {
         //Retrieve all player data from Players Model
-        $players = new \App\Models\hockey\Players();
-        $records = $players->findAll();
+        $creators = new \App\Models\creators\Game();
+        $records = $creators->findAll();
         
         // get a template parser
         $parser = \Config\Services::parser();
@@ -16,14 +16,14 @@ class Home extends BaseController
         // tell it about the substitions
         return $parser->setData(['records' => $records])
             // and have it render the template with those
-            ->render('hockey/playerList');
+            ->render('creators\creatorsList');
     }
     
     public function showme($id)
     {
         //Retrieve one player data from Players Model with $id
-        $players = new \App\Models\hockey\Players();
-        $record = $players->find($id);
+        $creators = new \App\Models\creators\Game();
+        $record = $creators->find($id);
         
         // get a template parser
         $parser = \Config\Services::parser();
@@ -31,6 +31,6 @@ class Home extends BaseController
         // tell it about the substitions
         return $parser->setData($record)
             // and have it render the template with those
-            ->render('hockey/onePlayer');
+            ->render('creators\oneCreator');
     }
 }
