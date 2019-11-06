@@ -6,7 +6,7 @@
 
         <style>
         p{
-                font-size: 40px;
+                font-size: 20px;
                 text-indent: 5em;
             }
         h1{
