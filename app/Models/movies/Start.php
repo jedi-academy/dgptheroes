@@ -4,7 +4,7 @@ namespace App\Models\movies;
 /**
  * Hockey Player Data
  */
-class Players
+class Start
 {
 
 	// mock data: an array of records (also arrays)
