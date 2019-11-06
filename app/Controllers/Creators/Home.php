@@ -7,16 +7,26 @@ class Home extends BaseController
     public function index()
     {
         //Retrieve all player data from Players Model
-        $creators = new \App\Models\creators\Game();
-        $records = $creators->findAll();
         
-        // get a template parser
-        $parser = \Config\Services::parser();
+        $model = new \App\Models\creators\Creators();
+        $headings = $model->fields;
+        $data = $model->findAll();
         
-        // tell it about the substitions
-        return $parser->setData(['records' => $records])
-            // and have it render the template with those
-             ->render('creators/creatorsList');
+        $table = new \CodeIgniter\View\Table();
+     unset($headings[count($headings)-1]);
+     $table->setHeading($headings);
+     
+     foreach ($data as $key => $value) {
+     $linkedThing = anchor("Home/showme/$value->id","want to see more?");
+     $table->addRow([$linkedThing, $value->Name, $value->Date_of_birth,$value->Grduate,$value->Country,$value->Game_company,$value->Representative_works,$value->Identifier,$value->image]);
+}
+     $view = \Config\Services::renderer();
+     $output = $view->render('top') .
+             
+     $table->generate().
+     $view->render('bottom');
+
+       return $output;
     }
     
     public function showme($id)
