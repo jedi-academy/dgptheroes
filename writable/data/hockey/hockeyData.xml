@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+
+<root>
+  <record>
+    <id>1</id>
+    <name>Gordie Howe</name>
+    <city>Floral</city>
+    <goals>801,</goals>
+    <team>Detroit Red Wings</team>
+    <position>Right Wing</position>
+    <nickname>Mr.Hockey</nickname>
+    <image>ghowe.jpg</image>
+  </record>
+  
+  <record>
+    <id>2</id>
+    <name>Wayne Gretzky</name>
+    <city>Brantford</city>
+    <goals>894</goals>
+    <team>Los Angeles Kings</team>
+    <position>Center</position>
+    <nickname>The Great One</nickname>
+    <image>wgretzky.jpg</image>
+  </record>
+
+  <record>
+    <id>3</id>
+    <name>Bobby Orr</name>
+    <city>Parry Sound</city>
+    <goals>270</goals>
+    <team>Boston Bruins</team>
+    <position>Defense</position>
+    <nickname>Number Four, Bobby Orr</nickname>
+    <image>borr.jpg</image>
+  </record>
+  
+  <record>
+    <id>4</id>
+    <name>Mario Lemieux</name>
+    <city>Montreal</city>
+    <goals>690</goals>
+    <team>Pittsburgh Penguins</team>
+    <position>Center</position>
+    <nickname>The Magnificent One</nickname>
+    <image>mlemieux.jpg</image>
+  </record>
+
+  <record>
+    <id>5</id>
+    <name>Maurice Richard</name>
+    <city>Montreal</city>
+    <goals>544</goals>
+    <team>Montreal Canadiens</team>
+    <position>Right Wing</position>
+    <nickname>The Rocket</nickname>
+    <image>mrichard.jpg</image>
+  </record>
+
+  <record>
+    <id>6</id>
+    <name>Alexander Ovechkin</name>
+    <city>Moscow</city>
+    <goals>662</goals>
+    <team>Washington Capitals</team>
+    <position>Left Wing</position>
+    <nickname>The Great Eight</nickname>
+    <image>aovechkin.jpg</image>
+  </record>
+ 
+</root>
