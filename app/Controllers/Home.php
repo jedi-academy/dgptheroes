@@ -1,9 +1,7 @@
 <?php
 namespace App\Controllers;
-
 class Home extends BaseController
 {
-
 	public function index()
 	{
 		$data = [];
@@ -12,10 +10,8 @@ class Home extends BaseController
 		{
 			$data[] = ['name' => $cat];
 		}
-
 		$parser = service('parser');
 		return $parser->setData(['cells' => $data], 'raw')
 						->render('welcome_message');
 	}
-
 }
