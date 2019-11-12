@@ -1,22 +1,35 @@
 <?php
 namespace App\Controllers\Crossfire;
-use App\Controllers\BaseController;
+use CodeIgniter\RESTful\ResourcePresenter;
 
-class Home extends BaseController
+class Home extends ResourcePresenter
 {
     public function index()
     {
         //Retrieve all player data from Players Model
         $cfplayers = new \App\Models\crossfire\Cfplayers();
-        $records = $cfplayers->findAll();
+        $headings = $cfplayers->fields;
+        $data = $cfplayers->findAll();
         
-        // get a template parser
-        $parser = \Config\Services::parser();
+        $table = new \CodeIgniter\View\Table();
+        unset($headings[count($headings)-1]);
+        unset($headings[count($headings)-1]);
+        unset($headings[count($headings)-1]);
+        $table->setHeading($headings);
         
-        // tell it about the substitions
-        return $parser->setData(['records' => $records])
-            // and have it render the template with those
-            ->render('crossfire/cfplayerList');
+        foreach($data as $record){
+        $linkedThing = anchor("/crossfire/home/showme/".$record->id,"{$record->id}");
+        $table->addRow($linkedThing, $record->name, $record->club,$record->nickname); 
+     }
+        $parser = \Config\Services::parser();     
+        $view = \Config\Services::renderer();
+        $output = $view->render('crossfire/top').
+        //$parser->setData(['records' => $data])->render('content') .
+        $table->generate().
+        $view->render('crossfire/bottom');
+     
+        return $output;
+        
     }
     
     public function showme($id)
