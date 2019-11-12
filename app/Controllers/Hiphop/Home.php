@@ -1,21 +1,14 @@
 <?php
 namespace App\Controllers\Hiphop;
-use App\Controllers\BaseController;
+use CodeIgniter\RESTful\ResourcePresenter;
 
-class Home extends BaseController
+class Home extends ResourcePresenter
 {
+    protected $modelName = 'App\Models\hiphop\Musicians';
+    
     public function index()
     {
-        // connect to the model
-        $musicians = new \App\Models\hiphop\Musicians();
-        // retrieve all the records
-        $records = $musicians->findAll();     
-        // get a template parser
-        $parser = \Config\Services::parser();       
-        // tell it about the substitions
-        return $parser->setData(['records' => $records])
-            // and have it render the template with those
-            ->render('hiphop/musicianList');
+       return view('templates/list',$this->model->findAll());
     }
     
     public function showme($id)
