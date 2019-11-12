@@ -1,6 +1,5 @@
 <?php
 namespace App\Controllers;
-
 /**
  * Class BaseController
  *
@@ -13,12 +12,9 @@ namespace App\Controllers;
  *
  * @package CodeIgniter
  */
-
 use CodeIgniter\Controller;
-
 class BaseController extends Controller
 {
-
 	/**
 	 * An array of helpers to be loaded automatically upon
 	 * class instantiation. These helpers will be available
@@ -27,7 +23,6 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = [];
-
 	/**
 	 * Constructor.
 	 */
@@ -35,12 +30,10 @@ class BaseController extends Controller
 	{
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
-
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.:
 		// $this->session = \Config\Services::session();
 	}
-
 }

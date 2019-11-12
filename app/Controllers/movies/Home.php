@@ -1,29 +1,28 @@
 <?php
-namespace App\Controllers\creators;
+namespace App\Controllers\movies;
 use App\Controllers\BaseController;
 
-class Page extends BaseController
+class Home extends BaseController
 {
     public function index()
     {
         //Retrieve all player data from Players Model
-        $creators = new \App\Models\creators\Game();
-        $records = $creators->findAll();
+        $starts = new \App\Models\movies\Start();
+        $records = $starts->findAll();
         
         // get a template parser
         $parser = \Config\Services::parser();
-        
         // tell it about the substitions
         return $parser->setData(['records' => $records])
             // and have it render the template with those
-            ->render('creators\creatorsList');
+            ->render('movies/startList');
     }
     
     public function showme($id)
     {
         //Retrieve one player data from Players Model with $id
-        $creators = new \App\Models\creators\Game();
-        $record = $creators->find($id);
+        $players = new \App\Models\movies\Start();
+        $record = $players->find($id);
         
         // get a template parser
         $parser = \Config\Services::parser();
@@ -31,6 +30,6 @@ class Page extends BaseController
         // tell it about the substitions
         return $parser->setData($record)
             // and have it render the template with those
-            ->render('creators\oneCreator');
+            ->render('movies/star');
     }
 }
