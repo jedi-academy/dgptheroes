@@ -74,6 +74,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->presenter('Creators', ['controller' =>'App\Controllers\Creators\Home']);
+$routes->presenter('Crossfire', ['controller' =>'App\Controllers\Crossfire\Home']);
 /**
  * --------------------------------------------------------------------
  * Additional Routing
