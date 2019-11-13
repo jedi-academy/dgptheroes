@@ -1,9 +1,9 @@
 <?php
-namespace App\Models;
+namespace App\Models\tvstars;
 use App\Models\Simple\XMLModel;
 
 
-class tvb extends XMLModel
+class Tvb extends XMLModel
 {
     protected $origin = WRITEPATH . '/writable/data/tvstars/tvstars.xml';
     
