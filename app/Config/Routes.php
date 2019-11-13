@@ -73,7 +73,8 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-
+$routes->presenter('Creators', ['controller' =>'App\Controllers\Creators\Home']);
+$routes->presenter('Crossfire', ['controller' =>'App\Controllers\Crossfire\Home']);
 /**
  * --------------------------------------------------------------------
  * Additional Routing
