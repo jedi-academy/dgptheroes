@@ -75,6 +75,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->presenter('Creators', ['controller' =>'App\Controllers\Creators\Home']);
 $routes->presenter('Crossfire', ['controller' =>'App\Controllers\Crossfire\Home']);
+$routes->presenter('Movies', ['controller' =>'App\Controllers\Movies\Home']);
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
