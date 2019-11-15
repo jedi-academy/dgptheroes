@@ -72,8 +72,11 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->presenter('Creators', ['controller' => 'App\Controllers\Creators\Home']);
-$routes->presenter('Crossfire', ['controller' => 'App\Controllers\Crossfire\Home']);
+
+$routes->presenter('Creators', ['controller' =>'App\Controllers\Creators\Home']);
+$routes->presenter('Crossfire', ['controller' =>'App\Controllers\Crossfire\Home']);
+$routes->presenter('Hiphop', ['controller' =>'App\Controllers\Hiphop\Home']);
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
@@ -87,6 +90,12 @@ $routes->presenter('Crossfire', ['controller' => 'App\Controllers\Crossfire\Home
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
+
+
+
+
+
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+
 }

@@ -10,7 +10,7 @@
                     {gender} was born on {birthdate}. 
                 </p>
                 <p>
-                    {gender} atives from {years active}, corparates with {labels} brokerage company.
+                    {gender} atives from {yearsactive}, corparates with {labels} brokerage company.
                 </p>
                 See more information. Enter this website -> <a href="">{website}</a>
 		<p><a href="/home">Home</a></p>
