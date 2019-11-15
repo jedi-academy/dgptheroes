@@ -4,6 +4,7 @@
 		<title>{name}</title>
 	</head>
 	<body>
+            <h1>One player</h1>     
             <h2 style="color: blueviolet">{name}</h2>
                 <p><img src="/images/crossfire/{image}"/></p>
                 <p style="color:violet">Name:{name}</p>
@@ -13,7 +14,6 @@
                 <p style="color:yellowgreen">Position:{position}</p>
                 <p style="color:orange">Nickname:{nickname}</p>
                 <p><a href="/crossfire">Back</a></p>
-		<p><a href="/home">Home</a></p>
 	</body>
 </html>
 
