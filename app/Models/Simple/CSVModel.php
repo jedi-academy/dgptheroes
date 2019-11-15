@@ -52,7 +52,7 @@ class CSVModel extends SimpleModel
 		}
 		// rebuild the keys table
 		$this->reindex();
-					echo var_dump($this->fields);
+					//echo var_dump($this->fields);
 	}
 
 	/**
