@@ -1,4 +1,6 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 /**
  * --------------------------------------------------------------------
@@ -16,15 +18,13 @@
  * so that a different class/function is called than the one
  * corresponding to the URL.
  */
-
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes(true);
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
-if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
-{
-	require SYSTEMPATH . 'Config/Routes.php';
+if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
+    require SYSTEMPATH . 'Config/Routes.php';
 }
 
 /**
@@ -69,12 +69,14 @@ $routes->setAutoRoute(true);
  * Route Definitions
  * --------------------------------------------------------------------
  */
-
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+
 $routes->presenter('Creators', ['controller' =>'App\Controllers\Creators\Home']);
 $routes->presenter('Crossfire', ['controller' =>'App\Controllers\Crossfire\Home']);
+$routes->presenter('Hiphop', ['controller' =>'App\Controllers\Hiphop\Home']);
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
@@ -88,7 +90,12 @@ $routes->presenter('Crossfire', ['controller' =>'App\Controllers\Crossfire\Home'
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
-if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
-{
-	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+
+
+
+
+
+if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
+    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+
 }
