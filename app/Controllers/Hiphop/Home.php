@@ -43,9 +43,12 @@ class Home extends ResourcePresenter {
         // get a template parser
         $parser = \Config\Services::parser();
         // tell it about the substitions
-        return $parser->setData($record)
-                        // and have it render the template with those
-                      ->render('hiphop/musicianIntro');
+        
+        $output = $parser->render('hiphop/top').
+                  $parser->setData($record)->render('hiphop/musicianIntro').
+                  $parser->render('hiphop/bottom');
+        
+        return $output;
     }
 
 }
