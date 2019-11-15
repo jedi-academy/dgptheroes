@@ -72,7 +72,6 @@ class Home extends ResourcePresenter {
         
     }
 
-    /*
     public function showme($id) {
         // connect to the model
         $musicians = new \App\Models\hiphop\Musicians();
@@ -85,5 +84,5 @@ class Home extends ResourcePresenter {
                         // and have it render the template with those
                         ->render('hiphop/musicianIntro');
     }
-    */
+
 }
