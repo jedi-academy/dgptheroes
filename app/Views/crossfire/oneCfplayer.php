@@ -4,8 +4,13 @@
 		<title>{name}</title>
 	</head>
 	<body>
-            <h1>One player</h1>     
+            <h2 style="color: blueviolet">One player</h2>
+            <!--
             <h2 style="color: blueviolet">{name}</h2>
+            -->
+            <!--
+            {form}
+            -->
                 <p><img src="/images/crossfire/{image}"/></p>
                 <p style="color:violet">Name:{name}</p>
                 <p style="color:indigo">Club:{club}</p>
