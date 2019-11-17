@@ -47,6 +47,30 @@ class Home extends ResourcePresenter {
 
     public function edit($id = null) {
         parent::edit($id);
+        // connect to the model
+        $creators = new \App\Models\Creators\Creators();
+        // retrieve all the records
+        $record = $creators->find($id);
+        // build a form to present this destination
+        // nothing is editable (nor will the ID be), but it should look familar
+        helper('form');
+        $form = form_open('#');
+        $form .= form_fieldset('ID') .
+                $record['id'] . form_fieldset_close();
+        $form .= form_fieldset('Name') .
+                'Name: ' .
+                form_input('Name', $record['Name']) . form_fieldset_close();
+        $form .= form_fieldset('Date_of_birth') .
+                'Date_of_birth: ' .
+                form_textarea('Date_of_birth', $record['Date_of_birth']) . form_fieldset_close();
+        
+        $form .= form_close();
+        //get a template parser
+        $parser = \Config\Services::parser();
+        // tell it about the substitions
+        return $parser->setData(['form' => $form], 'raw')
+                        // and have it render the template with those
+                        ->render('creators/oneCreator');
     }
 
 }
