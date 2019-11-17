@@ -9,5 +9,6 @@
                    {gender} atives from {yearsactive}, corparates with {labels} brokerage company.
                 </p>
                     See more information. Enter this website -> <a href="">{website}</a>
+                    <p><button style="background-color: lavender;"><b><a href="/hiphop/home/edit/{id}" style="text-decoration: none;">Edit</a></b></button></p>
             </div>
 
