@@ -18,7 +18,7 @@
     <body>
         <h1>The Famous Game Creators</h1>
         {records}
-        <p><a href="/Creators/Home/showme/{id}">{Name}</a></p>
+        <p><a href="/Creators/Home/edit/{id}">{Name}</a></p>
         {/records}
         <p><a href="/home">Back</a></p>
     </body>
