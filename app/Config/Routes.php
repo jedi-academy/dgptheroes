@@ -76,6 +76,7 @@ $routes->get('/', 'Home::index');
 $routes->presenter('Creators', ['controller' =>'App\Controllers\Creators\Home']);
 $routes->presenter('Crossfire', ['controller' =>'App\Controllers\Crossfire\Home']);
 $routes->presenter('Hiphop', ['controller' =>'App\Controllers\Hiphop\Home']);
+$routes->presenter('Football', ['controller' =>'App\Controllers\Football\Home']);
 
 /**
  * --------------------------------------------------------------------
