@@ -1,8 +1,8 @@
 <?php
-namespace App\Controllers\movies;
-use App\Controllers\BaseController;
+namespace App\Controllers\Moviies;
+use CodeIgniter\RESTful\ResourcePresenter;
 
-class Home extends BaseController
+class Home extends ResourcePresenter
 {
     public function index()
     {
@@ -18,7 +18,7 @@ class Home extends BaseController
             ->render('movies/startList');
     }
     
-    public function showme($id)
+    public function show($id)
     {
 
         $start = new \App\Models\movies\Start();
