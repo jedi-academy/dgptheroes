@@ -40,9 +40,7 @@ class Home extends ResourcePresenter {
         $parser = \Config\Services::parser();
 
         // tell it about the substitions
-        return $parser->setData($record)
-                        // and have it render the template with those
-                        ->render('creators/oneCreator');
+        return $parser->setData($record)->render('creators/oneCreator') . $parser ->render('creators/top') .$parser ->render('creators/bottom');
     }
 
     public function edit($id = null) {
@@ -54,7 +52,14 @@ class Home extends ResourcePresenter {
         // build a form to present this destination
         // nothing is editable (nor will the ID be), but it should look familar
         helper('form');
-        $form = form_open('#');
+        
+        echo form_open('#');
+        
+        $name = ['name' => 'Joe', 'id' => 'name_id','placeholder' => 'Edit Name'];;
+        echo form_input();
+        
+        echo form_close();
+        /*$form = form_open('#');
         $form .= form_fieldset('ID') .
                 $record['id'] . form_fieldset_close();
         $form .= form_fieldset('Name') .
@@ -64,8 +69,10 @@ class Home extends ResourcePresenter {
                 'Date_of_birth: ' .
                 form_textarea('Date_of_birth', $record['Date_of_birth']) . form_fieldset_close();
         
-        $form .= form_close();
+        $form .= form_close();*/
+        
         //get a template parser
+        
         $parser = \Config\Services::parser();
         // tell it about the substitions
         return $parser->setData(['form' => $form], 'raw')
