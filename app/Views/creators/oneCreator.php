@@ -24,7 +24,7 @@
         <p>Representative works:{Representative_works}</p>
         <p style="color:red">Identifier:{Identifier}</p>
         <p><a href="/creators">Back</a></p>
-        <p><a href="/Creators/Home/edit/{id}">Edit</a></p>
+        <p><a href="/creators/home/edit/{id}">Edit</a></p>
         <p><a href="/home">Home</a></p>
     </body>
 </html>
