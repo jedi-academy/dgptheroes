@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers\Crossfire;
 use CodeIgniter\RESTful\ResourcePresenter;
+helper('form');
 
 class Home extends ResourcePresenter
 {
@@ -41,8 +42,52 @@ class Home extends ResourcePresenter
         $parser->setData($record)->render('crossfire/oneCfplayer').
         $parser->render('crossfire/bottom');
     }
-    public function edit($id = null) {
+    public function edit($id = NULL) {
+        $cfplayers = new \App\Models\crossfire\Cfplayers();
+        $record = $cfplayers->find($id);
+        /*
+                helper('form');
+                
+		$form = form_open('/crossfire/home/update/'.$id);
+                $form .= 'Id:'.form_input('id', $record['id']).'<br><br>';
+                $form .= 'Name:'.form_input('name', $record['name']).'<br><br>';
+                $form .= 'Club:' .form_input('club', $record['club']).'<br><br>';
+                $form .= 'City:' .form_input('city', $record['city']).'<br><br>';
+                $form .= 'Main weapon:' .form_input('main weapon', $record['main weapon']).'<br><br>';
+                $form .= 'Position:' .form_input('position', $record['position']).'<br><br>';
+                $form .= 'Nickname:' .form_input('nickname', $record['nickname']).'<br><br>';
+                $form .= 'Image:'.form_dropdown('select',  $record['image']).'<br><br>';
+                
+                $form .= form_submit('Submit','please update');
+		// don't include any buttons yet
+		$form .= form_close();
+        */
+		//get a template parser
+		$parser = \Config\Services::parser();
+		// tell it about the substitions
+		return 
+                $parser->render('crossfire/top').
+                $parser->render('crossfire/editPage').
+                //$parser->render('crossfire/editPage').
+                $parser->render('crossfire/bottom');
+    }
+    
+    public function handle() {
+        $cfplayers = new \App\Models\crossfire\Cfplayers();
+        helper(['form', 'url']);
         
-        parent::edit($id);
+     //   echo var_dump($this->request->getVar());
+        
+                if (! $this->validate($cfplayers->validationRules))
+                {
+                    echo $this->validator->listErrors();
+                        echo view('crossfire/editPage', [
+                                'validation' => $this->validator
+                        ]);
+                }
+                else
+                {
+                        echo view('crossfire/Success');
+                }
     }
 }
