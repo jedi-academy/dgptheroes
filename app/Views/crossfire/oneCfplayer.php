@@ -17,7 +17,8 @@
                 <p style="color:blue">City:{city}</p>
                 <p style="color:green">Main weapon:{main weapon}</p>
                 <p style="color:yellowgreen">Position:{position}</p>
-                <p style="color:orange">Nickname:{nickname}</p>
+                <p style="color:orange">Nickname:{nickname}</p>  
+                <p><a href="/crossfire/home/edit/{id}">Edit</a></p> 
                 <p><a href="/crossfire">Back</a></p>
 	</body>
 </html>

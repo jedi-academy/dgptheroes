@@ -55,7 +55,7 @@ class Home extends ResourcePresenter {
         // nothing is editable (nor will the ID be), but it should look familar
         helper('form');
         $form = form_open('#');
-        $form .= form_fieldset('ID') .
+        /*$form .= form_fieldset('ID') .
                 $record['id'] . form_fieldset_close();
         $form .= form_fieldset('Name') .
                 'Name: ' .
@@ -63,14 +63,38 @@ class Home extends ResourcePresenter {
         $form .= form_fieldset('Date_of_birth') .
                 'Date_of_birth: ' .
                 form_textarea('Date_of_birth', $record['Date_of_birth']) . form_fieldset_close();
-        
+        $form .= form_submit('mySubmit','submit');*/
         $form .= form_close();
         //get a template parser
         $parser = \Config\Services::parser();
         // tell it about the substitions
         return $parser->setData(['form' => $form], 'raw')
                         // and have it render the template with those
-                        ->render('creators/oneCreator');
+                        ->render('creators/edit');
     }
-
+    public function handle(){
+          helper(['form', 'url']);
+          
+         // echo var_dump($this->request->getVar());
+          $rules = [
+              'Name' => 'required|min_length[2]',
+              'Date_of_birth' => 'required|min_length[5]',
+              'Grduate' => 'required|min_length[5]',
+              'Country' => 'required|min_length[5]',
+              'Game_company' => 'required|min_length[5]',
+              'Representative works' => 'required|min_length[5]'
+          ];
+                if (! $this->validate($rules))
+                {
+                        echo $this->validator->listErrors();
+                        echo view('edit', [
+                                'validation' => $this->validator
+                        ]);
+                }
+                else
+                {
+                        echo view('Success');
+                }
+    }
+    
 }
