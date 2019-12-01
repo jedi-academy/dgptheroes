@@ -154,7 +154,9 @@ class Home extends ResourcePresenter {
             echo $this->validator->listErrors();
             return $this->edit($id);
         } else {
+            echo view('hiphop/top');
             echo view('hiphop/Success');
+            echo view('hiphop/bottom');
         }
     }
 
